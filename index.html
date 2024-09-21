@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PJStore</title>
+</head>
+<body>
+    <header>
+        <h1>PJStore</h1>
+        <div class="toggle-container">
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider"></span>
+            </label>
+            <span id="toggle-label">Switch to Light Mode</span>
+        </div>
+        <input type="text" id="search" placeholder="Search apps...">
+    </header>
+    <main id="app-list">
+        <div class="app-card">
+            <button class="app-button" onclick="location.href='apps/iceberk/iceberk.html'">IceBerk</button>
+        </div>
+        <!-- Additional app cards can be added here -->
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

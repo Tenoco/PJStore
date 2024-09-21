@@ -1,0 +1,135 @@
+/* style.css */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme change */
+}
+
+body.light {
+    background-color: #ffffff; /* Light mode background */
+    color: #000000; /* Light mode text color */
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em; /* Larger title */
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin: 20px auto;
+    display: block;
+    font-family: 'Courier New', monospace; 
+    border-radius: 12px; /* Rounded input */
+    border: 1px solid #007bff; /* Border for input */
+}
+
+.app-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px;
+    margin: 10px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace; 
+    border-radius: 12px; /* Curved buttons */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.app-button:hover {
+    background-color: #0056b3;
+}
+
+.app-card {
+    background-color: #1e1e1e; /* Dark background for cards in dark mode */
+    border-radius: 12px; /* Rounded corners */
+    padding: 20px;
+    margin: 10px auto; /* Center cards */
+    width: calc(80% - 40px); /* Responsive width with margins */
+}
+
+body.light .app-card {
+    background-color: #f9f9f9; /* Light mode background for cards */
+}
+
+.chat-container {
+   background-color: #1e1e1e; /* Dark background for chat-like container */
+   border-radius: 12px; /* Rounded corners */
+   padding: 15px;
+}
+
+body.light .chat-container {
+   background-color: #f1f1f1; /* Light mode chat container */
+   color: #000000; /* Light mode text color */
+}
+
+img {
+   width: 150px; /* Set a fixed width for images */
+   height: auto; 
+   border-radius: 12px; /* Rounded corners for images */
+}
+
+.screenshot-container {
+   display: flex; /* Use flexbox for horizontal layout */
+   overflow-x: auto; /* Allow horizontal scrolling */
+}
+
+/* Toggle Switch Styles */
+.toggle-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 10px;
+}
+
+.switch {
+   position: relative;
+   display: inline-block;
+   width: 60px;
+   height: 34px;
+}
+
+.switch input {
+   opacity: 0;
+   width: 0;
+   height: 0;
+}
+
+.slider {
+   position: absolute;
+   cursor: pointer;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: #ccc;
+   transition: .4s;
+   border-radius: 34px; /* Rounded switch edges */
+}
+
+.slider::before {
+   position: absolute;
+   content: "";
+   height: 26px;
+   width: 26px;
+   left: 4px;
+   bottom: 4px;
+   background-color: white;
+   border-radius: 50%; /* Circular knob on the switch */
+   transition: .4s;
+}
+
+/* When the checkbox is checked, change the slider's background and knob position */
+input[type=checkbox]:checked + .slider {
+   background-color: #007bff; /* Active switch color */
+}
+
+input[type=checkbox]:checked + .slider::before {
+   transform: translateX(26px); /* Move knob to the right when checked */
+}
