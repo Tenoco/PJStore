@@ -1,34 +1,25 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
-
-    // Check for saved theme in cookies
     const theme = getCookie('theme') || 'dark';
-
-    // Apply the theme to the body
     document.body.classList.toggle('light', theme === 'light');
-    
-    // Set the checkbox state based on theme
-    document.getElementById('theme-toggle').checked = theme === 'light';
-    
-    // Update button text based on current theme
     updateThemeButtonText();
 
-    // Theme toggle button event listener
-    document.getElementById('theme-toggle').addEventListener('change', function() {
+    document.getElementById('theme-toggle-button').addEventListener('click', function() {
         const newTheme = document.body.classList.toggle('light') ? 'light' : 'dark';
         setCookie('theme', newTheme, 365);
         updateThemeButtonText();
     });
 
+    document.getElementById('search').addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        filterApps(query);
+    });
 });
 
-// Function to set a cookie
 function setCookie(name, value, days) {
      const expires = new Date(Date.now() + days * 864e5).toUTCString();
      document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
 }
 
-// Function to get a cookie by name
 function getCookie(name) {
      return document.cookie.split('; ').reduce((r, v) => {
          const parts = v.split('=');
@@ -36,8 +27,20 @@ function getCookie(name) {
      }, '');
 }
 
-// Function to update the button text based on the current theme
 function updateThemeButtonText() {
-     const label = document.getElementById('toggle-label');
-     label.textContent = document.body.classList.contains('light') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+     const button = document.getElementById('theme-toggle-button');
+     button.textContent = document.body.classList.contains('light') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+}
+
+function filterApps(query) {
+    const appCards = document.querySelectorAll('.app-card');
+    appCards.forEach(card => {
+        const appName = card.querySelector('.icon-label').textContent.toLowerCase();
+        const tags = card.getAttribute('data-tags').toLowerCase();
+        if (appName.includes(query) || tags.includes(query)) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
 }

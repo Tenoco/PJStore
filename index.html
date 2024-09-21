@@ -10,19 +10,33 @@
     <header>
         <h1>PJStore</h1>
         <div class="toggle-container">
-            <label class="switch">
-                <input type="checkbox" id="theme-toggle">
-                <span class="slider"></span>
-            </label>
-            <span id="toggle-label">Switch to Light Mode</span>
+            <button id="theme-toggle-button">Switch to Light Mode</button>
         </div>
         <input type="text" id="search" placeholder="Search apps...">
     </header>
     <main id="app-list">
-        <div class="app-card">
-            <button class="app-button" onclick="location.href='iceberk.html'">IceBerk</button>
+        <!-- IceBerk -->
+        <div class="app-card" data-tags="crypto,finance">
+            <div class="mini-card">
+                <button class="icon-button" onclick="location.href='iceberk.html'">
+                    <img src="iceberkicon.jpg" alt="IceBerk Icon" class="icon-image">
+                </button>
+                <span class="icon-label">IceBerk</span>
+            </div>
         </div>
-        <!-- Additional app cards can be added here -->
+        <!-- Editor's Choice -->
+        <h3>Editor's Choice</h3>
+        <div class="app-card" data-tags="crypto,finance">
+            
+            <div class="mini-card">
+                <button class="icon-button" onclick="location.href='iceberk.html'">
+                    <img src="iceberkicon.jpg" alt="IceBerk Icon" class="icon-image">
+                </button>
+                <span class="icon-label">IceBerk</span>
+            </div>
+        </div>
+        <!-- Add more app cards here as needed -->
+       
     </main>
     <script src="script.js"></script>
 </body>

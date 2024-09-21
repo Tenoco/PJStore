@@ -1,4 +1,3 @@
-<!--iceberk.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +8,13 @@
 </head>
 <body>
    <header>
-       <h1>IceBerk</h1>
-       <div class="toggle-container">
-           <label class="switch">
-               <input type="checkbox" id="theme-toggle">
-               <span class="slider"></span>
-           </label>
-           <span id="toggle-label">Switch to Light Mode</span> <!-- Added toggle label -->
+       <div class="header-container">
+           <img src="iceberkicon.jpg" alt="IceBerk Icon" class="header-icon">
+           <h1>IceBerk</h1>
        </div>
+       
        <div class="chat-container">
-           <p>Description of IceBerk game.</p> 
+           <p>Description: Embark on an epic journey through the Crypto Ice Age! Join the thrilling race to gather rare and exclusive Berk coins!</p> 
            <button class="app-button" onclick="window.location.href='http://t.me/iceberobot/iceberk'">Open</button>
        </div>
 
@@ -28,8 +24,66 @@
            <img src="iceberk3.jpg" alt="IceBerk Screenshot 3">
        </div>
 
-       <div style="margin-top: 20px;"></div> 
+       <!-- Rating Section -->
+       <div class="rating-section">
+           <h2>User Ratings</h2>
+           <div id="overall-rating" style="font-family: monospace; font-weight: bold; font-size: 1.5em; margin-top: 10px;"></div>
+           <ul id="user-ratings">
+               <!-- Example user ratings -->
+               <li data-rating="8">
+                   <span class="user-name">John Doe</span>
+                   <span class="user-comment">Great app, very useful!</span>
+                   <span class="user-score">8/10</span>
+               </li>
+               <li data-rating="10">
+                   <span class="user-name">Jane Smith</span>
+                   <span class="user-comment">Amazing experience!</span>
+                   <span class="user-score">10/10</span>
+               </li>
+               <li data-rating="6">
+                   <span class="user-name">Alex Brown</span>
+                   <span class="user-comment">Good, but needs improvement.</span>
+                   <span class="user-score">6/10</span>
+               </li>
+           </ul>
+       </div>
+
+       <!-- Tags Section -->
+       <div class="tags-section" style="margin-top: 20px;">
+           <h2>Tags</h2>
+           <ul id="app-tags" style="list-style-type: none; padding: 0;">
+               <!-- Example tags -->
+               <li style="display: inline-block; background-color: #007AFF; color: #FFFFFF; padding: 5px 10px; border-radius: 5px; margin-right: 5px;">Crypto</li>
+               <li style="display: inline-block; background-color: #007AFF; color: #FFFFFF; padding: 5px 10px; border-radius: 5px; margin-right: 5px;">Finance</li>
+               <!-- Add more tags as needed -->
+           </ul>
+       </div>
+
+       <!-- Leave a Review Section -->
+       <div class="leave-review-section" style="margin-top: 20px;">
+           <a href="#review-form" class="app-button">Leave a Review Here</a>
+       </div>
+
    </header>
+
+   <!-- Placeholder for review form -->
+   <section id="review-form" style="display:none;">
+       <!-- Review form content goes here -->
+   </section>
+
    <script src="script.js"></script> <!-- Include script.js -->
+   <script>
+       // Calculate overall rating
+       document.addEventListener('DOMContentLoaded', function() {
+           const ratings = document.querySelectorAll('#user-ratings li');
+           let totalRating = 0;
+           ratings.forEach(rating => {
+               totalRating += parseInt(rating.getAttribute('data-rating'));
+           });
+           const overallRating = (totalRating / ratings.length).toFixed(1);
+           document.getElementById('overall-rating').textContent = `Overall Rating: ${overallRating}/10`;
+       });
+   </script>
+
 </body>
 </html>
